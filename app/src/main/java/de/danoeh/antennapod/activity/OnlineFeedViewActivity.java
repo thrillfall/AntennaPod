@@ -421,7 +421,7 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
         description.setText(HtmlToPlainText.getPlainText(feed.getDescription()));
 
         viewBinding.subscribeButton.setOnClickListener(v -> {
-            if (feedInFeedlist(feed)) {
+            if (feedIsAlreadySubscribed(feed)) {
                 openFeed();
             } else {
                 Feed f = new Feed(selectedDownloadUrl, null, feed.getTitle());
@@ -517,7 +517,7 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
             if (DownloadRequester.getInstance().isDownloadingFile(feed.getDownload_url())) {
                 viewBinding.subscribeButton.setEnabled(false);
                 viewBinding.subscribeButton.setText(R.string.subscribing_label);
-            } else if (feedInFeedlist(feed)) {
+            } else if (feedIsAlreadySubscribed(feed)) {
                 viewBinding.subscribeButton.setEnabled(true);
                 viewBinding.subscribeButton.setText(R.string.open_podcast);
                 if (didPressSubscribe) {
@@ -547,7 +547,7 @@ public class OnlineFeedViewActivity extends AppCompatActivity {
         }
     }
 
-    private boolean feedInFeedlist(Feed feed) {
+    private boolean feedIsAlreadySubscribed(Feed feed) {
         if (feeds == null || feed == null) {
             return false;
         }
