@@ -46,6 +46,7 @@ project.ext {
     iconifyVersion = "2.2.2"
     annimonStreamVersion = "1.2.2"
     exoPlayerVersion = "2.14.2"
+    jodaTimeVersion = "2.10.12"
 
     // Google Play build
     wearableSupportVersion = "2.6.0"
